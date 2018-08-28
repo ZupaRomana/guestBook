@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Title</title>
 </head>
 <body>
 
     <form method="POST">
 
-        <input name="Name">
-        <input name="Message">
+        <input name="Name" placeholder="Enter name">
+        <input name="Text" placeholder="Enter message">
+        <input type="submit" value="SUBMIT">
 
     </form>
 
     {% for message in messages %}
-        <h1>Author: { message.name }</h1>
-        <br>
-        <h2>Message: { message.text }</h2>
+        <h1>Author: {{ message.name }}</h1>
+        <h2>Message: {{ message.text }}</h2>
     {% endfor %}
 
 </body>
