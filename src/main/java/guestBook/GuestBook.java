@@ -2,6 +2,8 @@ package guestBook;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import org.jtwig.JtwigModel;
+import org.jtwig.JtwigTemplate;
 
 import java.io.*;
 import java.net.URLDecoder;
@@ -33,8 +35,18 @@ public class GuestBook implements HttpHandler {
     private void appendMessage() throws IOException {
 
         String formData = getFormData();
-        Map inputs = parseFormData(formData);
+        Map<String, String> inputs = parseFormData(formData);
+        String name = inputs.get("Name");
+        String text = inputs.get("Text");
 
+        Message message = new Message(name, text);
+    }
+
+    private void prepareResponse() {
+        JtwigTemplate jtwigTemplate = JtwigTemplate.classpathTemplate("static/index.twig");
+        JtwigModel jtwigModel = JtwigModel.newModel();
+        jtwigModel.with("messages", Message.getMessages());
+        this.response = jtwigTemplate.render(jtwigModel);
     }
 
     private void sendResponse() throws IOException {

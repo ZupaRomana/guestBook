@@ -20,6 +20,7 @@ public class App
         }
 
         httpServer.createContext("/index", new GuestBook());
+        httpServer.createContext("/static", new Static());
 
         httpServer.setExecutor(null);
 

@@ -7,11 +7,11 @@ public class Message {
 
     private static List<Message> messages = new ArrayList<>();
 
-    private String author;
+    private String name;
     private String text;
 
-    public Message(String author, String text) {
-        this.author = author;
+    public Message(String name, String text) {
+        this.name = name;
         this.text = text;
 
         messages.add(this);

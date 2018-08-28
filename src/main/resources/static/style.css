@@ -1,0 +1,19 @@
+h1 {
+    font-size: 22px;
+    background-color: coral;
+    margin: 0;
+    padding: 2px;
+}
+
+h2 {
+    font-size: 18px;
+    background-color: chocolate;
+    margin: 0;
+    padding: 2px;
+}
+
+form {
+    background-color: darkkhaki;
+    margin: 0;
+    padding: 2px;
+}
