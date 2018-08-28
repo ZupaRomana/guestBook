@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="POST">
+
+        <input name="Name">
+        <input name="Message">
+
+    </form>
+
+    {% for message in messages %}
+        <h1>Author: { message.name }</h1>
+        <br>
+        <h2>Message: { message.text }</h2>
+    {% endfor %}
+
+</body>
+</html>
